@@ -1,0 +1,5 @@
+
+# Maven/Gradle build output
+server/server/target/
+**/target/
+
