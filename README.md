@@ -36,5 +36,4 @@ The device captures images, uploads them to the server for processing (e.g., OCR
 
 ---
 
-## Repository Structure
 
