@@ -35,5 +35,5 @@ The device captures images, uploads them to the server for processing (e.g., OCR
 - **Testing**: JUnit 5, WebTestClient, parameterized integration tests  
 
 ---
-
+Countermeasure proposal: https://docs.google.com/document/d/1kzDstHVYX68wggAv58BmCdjN5BbQ-86V6OwrzsRVQWM/edit?usp=sharing
 
