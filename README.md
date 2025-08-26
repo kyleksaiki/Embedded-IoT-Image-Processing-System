@@ -1,11 +1,13 @@
 # IoT Image Processing and Feedback System
 
+IMPORTANT: THIS DEVICE IS A PROOF ON CONCEPT AND I DO NOT ALLOW MY CODE TO BE USED FOR CHEATING OF ANY KIND
+
 This project demonstrates an **end-to-end IoT pipeline** combining an ESP32-S3 camera module with a Spring Boot backend service.  
 The device captures images, uploads them to the server for processing (e.g., OCR or classification), and receives back a simple response that is conveyed to the user via **tactile vibration feedback**.
 
 ---
 
-## ✨ Features
+## Features
 
 - **ESP32-S3 Firmware**
   - Camera initialization and image capture
