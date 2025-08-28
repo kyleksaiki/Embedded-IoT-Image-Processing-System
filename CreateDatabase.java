@@ -78,9 +78,9 @@ public class CreateDatabase {
                 System.out.println("Executing: " + oneLine(sql));
                 stmt.execute(sql);
             }
-            System.out.println("\n✅ Setup complete. Database `mcqdb` and table `mcq_item` are ready, user 'mcq'@'localhost' has privileges.");
+            System.out.println("\n Setup complete. Database `mcqdb` and table `mcq_item` are ready, user 'mcq'@'localhost' has privileges.");
         } catch (SQLException e) {
-            System.err.println("❌ SQL error:");
+            System.err.println("SQL error:");
             while (e != null) {
                 System.err.printf("- SQLState: %s | ErrorCode: %d | Message: %s%n",
                         e.getSQLState(), e.getErrorCode(), e.getMessage());
@@ -94,5 +94,6 @@ public class CreateDatabase {
         return s.replaceAll("\\s+", " ").trim();
     }
 }
+
 
 
