@@ -5,13 +5,40 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/*
+ * CreateDatabase.java
+ *
+ * Part of the IoT Image Processing / Anti-Cheat Platform.
+ *
+ * This utility class bootstraps the relational database required by the
+ * Spring Boot backend. It creates the `mcqdb` database, initializes the
+ * `mcq_item` table, and provisions a dedicated application user with
+ * privileges. The `mcq_item` table is where processed multiple-choice
+ * questions (captured by the ESP32 device, uploaded as images, and
+ * classified by the OCR/LLM service) are stored for later retrieval.
+ *
+ * How it fits into the system:
+ *   - The ESP32 firmware captures images and sends them to the Spring Boot REST API.
+ *   - The backend processes those images (OCR/LLM) and extracts structured
+ *     question/option/answer data.
+ *   - This class ensures the backend has a database schema ready to persist
+ *     that structured data.
+ *
+ * Usage:
+ *   Run this once during setup (with MySQL admin credentials) to provision
+ *   the database and user account. Afterward, the Spring Boot application
+ *   can connect as the `mcq` user to read/write data in `mcqdb`.
+ */
+
 public class CreateDatabase {
     // You can override these with environment variables when running:
     // MYSQL_HOST, MYSQL_PORT, MYSQL_ADMIN_USER, MYSQL_ADMIN_PASS
+    
     private static final String HOST = System.getenv().getOrDefault("MYSQL_HOST", "localhost");
     private static final String PORT = System.getenv().getOrDefault("MYSQL_PORT", "3306");
     private static final String ADMIN_USER = System.getenv().getOrDefault("MYSQL_ADMIN_USER", "root");
-    private static final String ADMIN_PASS = System.getenv().getOrDefault("MYSQL_ADMIN_PASS", "1234");
+    //ENTER YOUR OWN PASSWORD
+    private static final String ADMIN_PASS = System.getenv().getOrDefault("MYSQL_ADMIN_PASS", "");
 
     public static void main(String[] args) {
         // Connect without selecting a default database
@@ -67,4 +94,5 @@ public class CreateDatabase {
         return s.replaceAll("\\s+", " ").trim();
     }
 }
+
 
